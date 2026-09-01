@@ -7,15 +7,18 @@
 class GameEngine
 {
 	// Assets
-	sf::RenderWindow m_window{};
-	std::unique_ptr<Scene> currentScene{};
+	sf::RenderWindow		m_window{ sf::VideoMode{sf::Vector2u{ 1280, 720 }}, {} };
+	std::unique_ptr<Scene>	currentScene{};
 
 public:
+	// changeScene
+
+	GameEngine()
+	{
+		m_window.setFramerateLimit(60);
+
+	}
 
 	// sUserInput
-	// changeScene
-	// run
-
-
-
+	void run();
 };
