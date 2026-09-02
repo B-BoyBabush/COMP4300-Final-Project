@@ -150,6 +150,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene_Menu.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
