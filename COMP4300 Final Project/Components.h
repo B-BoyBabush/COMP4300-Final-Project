@@ -1,4 +1,5 @@
 #pragma once
+#include "Vec2.h"
 
 class Component
 {
@@ -9,11 +10,11 @@ public:
 class CTransform : public Component
 {
 public:
-	int pos{};
-	int prevPos{};
-	int vel{};
+	Vec2 pos{};
+	Vec2 prevPos{};
+	Vec2 vel{};
 
-	CTransform(int p, int v)
+	CTransform(Vec2 p, Vec2 v)
 		: pos{ p }
 		, prevPos{ p }
 		, vel{ v }
@@ -25,12 +26,12 @@ public:
 class CBoundingBox : public Component
 {
 public:
-	int size{};
-	int halfSize{};
+	Vec2 size{};
+	Vec2 halfSize{};
 
-	CBoundingBox(int s, int hs)
+	CBoundingBox(Vec2 s)
 		: size{ s }
-		, halfSize{ hs }
+		, halfSize{ s / 2.0f }
 	{}
 
 	CBoundingBox() {}
