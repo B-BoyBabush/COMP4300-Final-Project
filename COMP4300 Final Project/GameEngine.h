@@ -18,6 +18,7 @@ public:
 	GameEngine()
 	{
 		m_window.setFramerateLimit(60);
+		m_window.setKeyRepeatEnabled(false);
 		// Call load assets function
 		changeScene(std::move(std::make_unique<Scene_Menu>(this)));
 	}

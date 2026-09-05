@@ -1,0 +1,6 @@
+Page 0 4
+Mazolund! 50 100 80 0
+Play 30 120 160 1
+Settings 30 120 220 1
+Quit 30 120 280 1
+Page 1 0
