@@ -1,5 +1,6 @@
 #pragma once
 #include "Vec2.h"
+#include "Animation.h"
 
 class Component
 {
@@ -35,4 +36,28 @@ public:
 	{}
 
 	CBoundingBox() {}
+};
+
+class CAnimation : public Component
+{
+public:
+	Animation animation{};
+	bool repeat{};
+	bool flip{};
+	bool pause{};
+
+	CAnimation(const Animation& a, bool r)
+		: animation{ a }
+		, repeat{ r }
+	{ }
+
+	CAnimation() {}
+};
+
+class CDraggable : public Component
+{
+public:
+	bool beingDragged{ false };
+
+	CDraggable() {}
 };

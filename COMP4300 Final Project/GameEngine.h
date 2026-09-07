@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Assets.h"
 #include "Scene.h"
 #include "Scene_Menu.h"
 
@@ -7,20 +8,21 @@
 
 class GameEngine
 {
-	// Assets
+	Assets					m_assets{};
 	sf::RenderWindow		m_window{ sf::VideoMode{sf::Vector2u{ 1280, 720 }}, {} };
 	std::unique_ptr<Scene>	m_currentScene{}; // Pointer so that it can take in any object with the base class
 
 public:
 	// Load assets
+	void loadAssets(const std::string& filepath);
 	void changeScene(std::unique_ptr<Scene> scene);
 
 	GameEngine()
 	{
 		m_window.setFramerateLimit(60);
 		m_window.setKeyRepeatEnabled(false);
-		// Call load assets function
-		changeScene(std::move(std::make_unique<Scene_Menu>(this)));
+		loadAssets("Assets/assets_config.txt");
+		changeScene(std::make_unique<Scene_Menu>(this));
 	}
 
 	void sUserInput();

@@ -12,20 +12,20 @@ class Scene_Menu : public Scene
 		Page() {}
 	};
 
-	sf::Font m_font{ "Assets/pixel_font.ttf" };
-	std::vector<Page> m_pages{};
-	size_t m_pageIndex{ 0 };
-	size_t m_selectableIndex{ 0 };
+	sf::Font			m_font{ "Assets/pixel_font.ttf" };
+	std::vector<Page>	m_pages{};
+	size_t				m_pageIndex{ 0 };
+	size_t				m_selectableIndex{ 0 };
 
 public:
-	void sRegisterActions();
 	void loadMenu(const std::string& filepath);
+	void sRegisterActions();
 	
 	Scene_Menu(GameEngine* gamePtr)
 		: Scene(gamePtr)
 	{
-		sRegisterActions();
 		loadMenu("Assets/menu_config.txt");
+		sRegisterActions();
 	}
 	
 	void sDoAction(const Action& action);

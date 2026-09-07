@@ -1,0 +1,8 @@
+Texture TexFernLeft Assets/fern_left.png
+Texture TexFernCenter Assets/fern_center.png
+Texture TexFernRight Assets/fern_right.png
+Texture TexScullclaw Assets/scullclaw.png
+Animation FernLeft TexFernLeft 1 60
+Animation FernCenter TexFernCenter 1 60
+Animation FernRight TexFernRight 1 60
+Animation Scullclaw TexScullclaw 4 15

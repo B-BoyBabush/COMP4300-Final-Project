@@ -1,8 +1,16 @@
+#pragma once
+
 class Vec2
 {
 public:
-    float x{};
-    float y{};
+    float x{ 0.0f };
+    float y{ 0.0f };
+
+    Vec2() {}
+    Vec2(float inx, float iny)
+        : x{ inx }
+        , y{ iny }
+    { }
     
     Vec2 operator+(Vec2 rhs){ return Vec2{ x + rhs.x, y + rhs.y }; }
     

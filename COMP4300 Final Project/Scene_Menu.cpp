@@ -1,15 +1,10 @@
 #include "Scene_Menu.h"
 #include "GameEngine.h"
+#include "Scene_Editor.h"
 
 #include <fstream>
-
-void Scene_Menu::sRegisterActions()
-{
-	m_actions[sf::Keyboard::Scancode::Escape] = "CLOSE";
-	m_actions[sf::Keyboard::Scancode::W] = "UP";
-	m_actions[sf::Keyboard::Scancode::S] = "DOWN";
-	m_actions[sf::Keyboard::Scancode::D] = "SELECT";
-}
+#include <string>
+#include <vector>
 
 void Scene_Menu::loadMenu(const std::string& filepath)
 {
@@ -56,6 +51,15 @@ void Scene_Menu::loadMenu(const std::string& filepath)
 	}
 }
 
+void Scene_Menu::sRegisterActions()
+{
+	m_actions[sf::Keyboard::Scancode::Escape] = "CLOSE";
+	m_actions[sf::Keyboard::Scancode::W] = "UP";
+	m_actions[sf::Keyboard::Scancode::S] = "DOWN";
+	m_actions[sf::Keyboard::Scancode::D] = "SELECT";
+	m_actions[sf::Keyboard::Scancode::A] = "BACK";
+}
+
 void Scene_Menu::sDoAction(const Action& action)
 {
 	if (action.type == "START")
@@ -76,6 +80,28 @@ void Scene_Menu::sDoAction(const Action& action)
 			else
 				m_selectableIndex++;
 		}
+		if (action.name == "SELECT")
+		{
+			sf::Text& text{ m_pages[m_pageIndex].selectable[m_selectableIndex] };
+			if (text.getString() == "Play")
+			{
+				// m_gamePtr->changeScene(Scene_Play{});
+			}
+			if (text.getString() == "Editor")
+			{
+				m_gamePtr->changeScene(std::make_unique<Scene_Editor>(m_gamePtr));
+			}
+			if (text.getString() == "Settings") 
+			{
+				m_pageIndex = 1; 
+				m_selectableIndex = 0;
+			}
+			if (text.getString() == "Quit") m_gamePtr->getWindow().close();
+		}
+		if (action.name == "BACK")
+		{
+			if (m_pageIndex == 1) m_pageIndex = 0;
+		}
 	}
 }
 
@@ -83,6 +109,7 @@ void Scene_Menu::sRender()
 {
 	m_gamePtr->getWindow().clear(sf::Color::Black);
 
+	// Change selected text to blue before drawing
 	m_pages[m_pageIndex].selectable[m_selectableIndex].setFillColor(sf::Color::Blue);
 	
 	for (sf::Text& dec : m_pages[m_pageIndex].decorative)
@@ -90,6 +117,7 @@ void Scene_Menu::sRender()
 	for (sf::Text& sel : m_pages[m_pageIndex].selectable)
 		m_gamePtr->getWindow().draw(sel);
 
+	// Change selected text back to purple
 	m_pages[m_pageIndex].selectable[m_selectableIndex].setFillColor(sf::Color::Magenta);
 	
 	m_gamePtr->getWindow().display();

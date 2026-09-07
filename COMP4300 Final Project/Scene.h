@@ -2,9 +2,9 @@
 
 #include "Action.h"
 
-#include <map>
-
 #include <SFML/Graphics.hpp>
+
+#include <map>
 
 class GameEngine;
 

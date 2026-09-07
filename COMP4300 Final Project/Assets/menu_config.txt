@@ -1,6 +1,11 @@
-Page 0 4
+Page 0 5
 Mazolund! 50 100 80 0
 Play 30 120 160 1
-Settings 30 120 220 1
-Quit 30 120 280 1
-Page 1 0
+Editor 30 120 220 1
+Settings 30 120 280 1
+Quit 30 120 340 1
+Page 1 4
+Mazolund! 50 100 80 0
+Graphics 30 120 160 1
+Controls 30 120 220 1
+Network 30 120 280 1
