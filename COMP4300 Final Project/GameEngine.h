@@ -9,7 +9,7 @@
 class GameEngine
 {
 	Assets					m_assets{};
-	sf::RenderWindow		m_window{ sf::VideoMode{sf::Vector2u{ 1280, 720 }}, {} };
+	sf::RenderWindow		m_window{ sf::VideoMode{sf::Vector2u{ 1280, 704 }}, {} };
 	std::unique_ptr<Scene>	m_currentScene{}; // Pointer so that it can take in any object with the base class
 
 public:
@@ -29,4 +29,5 @@ public:
 	void run();
 
 	sf::RenderWindow& getWindow() { return m_window; };
+	Assets& getAssets() { return m_assets; };
 };

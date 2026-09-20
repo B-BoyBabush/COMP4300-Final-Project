@@ -51,7 +51,7 @@ void Scene_Menu::loadMenu(const std::string& filepath)
 	}
 }
 
-void Scene_Menu::sRegisterActions()
+void Scene_Menu::registerActions()
 {
 	m_actions[sf::Keyboard::Scancode::Escape] = "CLOSE";
 	m_actions[sf::Keyboard::Scancode::W] = "UP";

@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/System.hpp>
 
 class Vec2
 {
@@ -10,6 +11,21 @@ public:
     Vec2(float inx, float iny)
         : x{ inx }
         , y{ iny }
+    { }
+
+    Vec2(int inx, int iny)
+        : x{ static_cast<float>(inx) }
+        , y{ static_cast<float>(iny) }
+    { }
+
+    Vec2(sf::Vector2f in)
+        : x{ in.x }
+        , y{ in.y }
+    { }
+
+    Vec2(sf::Vector2u in)
+        : x{ static_cast<float>(in.x) }
+        , y{ static_cast<float>(in.y) }
     { }
     
     Vec2 operator+(Vec2 rhs){ return Vec2{ x + rhs.x, y + rhs.y }; }
@@ -143,4 +159,7 @@ public:
             return true;
         return false;
     }
+
+    operator sf::Vector2f() const
+    { return sf::Vector2f{ x, y }; }
 };

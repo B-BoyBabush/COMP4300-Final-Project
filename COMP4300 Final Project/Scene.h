@@ -20,7 +20,7 @@ public:
 	{ }
 
 	// Mandatory systems defined by derived Scene classes
-	virtual void sRegisterActions() = 0;
+	virtual void registerActions() = 0;
 	virtual void sDoAction(const Action& action) = 0;
 	virtual void sRender() = 0;
 	virtual void sUpdate() = 0;

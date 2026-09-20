@@ -19,13 +19,13 @@ class Scene_Menu : public Scene
 
 public:
 	void loadMenu(const std::string& filepath);
-	void sRegisterActions();
+	void registerActions();
 	
 	Scene_Menu(GameEngine* gamePtr)
 		: Scene(gamePtr)
 	{
+		registerActions();
 		loadMenu("Assets/menu_config.txt");
-		sRegisterActions();
 	}
 	
 	void sDoAction(const Action& action);
