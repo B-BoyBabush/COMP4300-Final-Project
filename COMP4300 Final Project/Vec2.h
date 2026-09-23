@@ -23,6 +23,11 @@ public:
         , y{ in.y }
     { }
 
+    Vec2(sf::Vector2i in)
+        : x{ static_cast<float>(in.x) }
+        , y{ static_cast<float>(in.y) }
+    { }
+
     Vec2(sf::Vector2u in)
         : x{ static_cast<float>(in.x) }
         , y{ static_cast<float>(in.y) }

@@ -1,9 +1,40 @@
-Texture TexFernLeft Assets/fern_left.png
-Texture TexFernCenter Assets/fern_center.png
-Texture TexFernRight Assets/fern_right.png
+Texture TexFern1 Assets/fern_1.png
+Texture TexFern2 Assets/fern_2.png
+Texture TexFern3 Assets/fern_3.png
+Texture TexFoliage Assets/foliage_1.png
+Texture TexLeaves1 Assets/leaves_01.png
+Texture TexLeaves2 Assets/leaves_02.png
+Texture TexLeaves3 Assets/leaves_03.png
+Texture TexLeaves4 Assets/leaves_04.png
+Texture TexLeaves5 Assets/leaves_05.png
+Texture TexLeaves6 Assets/leaves_06.png
+Texture TexLeaves7 Assets/leaves_07.png
+Texture TexLeaves8 Assets/leaves_08.png
+Texture TexLeaves9 Assets/leaves_09.png
+Texture TexLeaves10 Assets/leaves_10.png
+Texture TexLeaves11 Assets/leaves_11.png
 Texture TexScullclaw Assets/scullclaw.png
+Texture TexDragoyle Assets/dragoyle.png
+Texture TexAnhur Assets/anhur.png
+Texture TexSet Assets/set.png
 Texture TexGround Assets/ground.png
-Animation FernLeft TexFernLeft 1 60
-Animation FernCenter TexFernCenter 1 60
-Animation FernRight TexFernRight 1 60
-Animation Scullclaw TexScullclaw 4 15
+Animation Fern1 TexFern1 1 60
+Animation Fern2 TexFern2 1 60
+Animation Fern3 TexFern3 1 60
+Animation Foliage TexFoliage 1 60
+Animation Leaves1 TexLeaves1 1 60
+Animation Leaves2 TexLeaves2 1 60
+Animation Leaves3 TexLeaves3 1 60
+Animation Leaves4 TexLeaves4 1 60
+Animation Leaves5 TexLeaves5 1 60
+Animation Leaves6 TexLeaves6 1 60
+Animation Leaves7 TexLeaves7 1 60
+Animation Leaves8 TexLeaves8 1 60
+Animation Leaves9 TexLeaves9 1 60
+Animation Leaves10 TexLeaves10 1 60
+Animation Leaves11 TexLeaves11 1 60
+Animation Scullclaw TexScullclaw 4 12
+Animation Dragoyle TexDragoyle 4 12
+Animation Anhur TexAnhur 4 12
+Animation Set TexSet 4 12
+Animation Ground TexGround 1 60

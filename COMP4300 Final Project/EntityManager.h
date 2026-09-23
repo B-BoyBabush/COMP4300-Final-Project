@@ -16,6 +16,11 @@ public:
 	EntityManager()
 	{}
 
+	std::vector<Entity>& getEntities()
+	{
+		return m_entities;
+	}
+
 	// Get all components of that type through the memory pool
 	template <typename Component>
 	std::vector<Component>& getComponent()
@@ -27,19 +32,21 @@ public:
 	Entity addEntity(const std::string& tag)
 	{
 		size_t id{ 0 };
-		bool noSpace{ true };
+		bool noMemory{ true };
 		
 		// Scan for an inactive entity id
 		for (size_t i{ 0 }; i < MemoryPool::Instance().m_active.size(); i++){
-			if (MemoryPool::Instance().m_active[i] == false){
+			if (MemoryPool::Instance().m_active[i] == false)
+			{
 				id = i;
-				noSpace = false;
+				noMemory = false;
+				MemoryPool::Instance().m_active[id] = true;
 				break;
 			}
 		}
 
 		// If the memory pool does not have space for the entity, resize it
-		if (noSpace)
+		if (noMemory)
 		{
 			// Set the id to one above the current number of entities
 			id = MemoryPool::Instance().numEntities + 1;
@@ -55,6 +62,8 @@ public:
 		// Reset all components
 		std::get<std::vector<CTransform>>(MemoryPool::Instance().m_pool)[entity.m_id] = CTransform{};
 		std::get<std::vector<CBoundingBox>>(MemoryPool::Instance().m_pool)[entity.m_id] = CBoundingBox{};
+		std::get<std::vector<CAnimation>>(MemoryPool::Instance().m_pool)[entity.m_id] = CAnimation{};
+		std::get<std::vector<CDraggable>>(MemoryPool::Instance().m_pool)[entity.m_id] = CDraggable{};
 		
 		// Add entity to add queue
 		m_toAdd.push_back(entity);
@@ -64,12 +73,9 @@ public:
 	// Update entity manager
 	void update()
 	{
-		// Set entities as active and move them from add queue to entity container
+		// Move entities from add queue to entity container
 		for (Entity entity : m_toAdd)
-		{
-			MemoryPool::Instance().m_active[entity.m_id] = true;
-			m_entities.push_back(entity);
-		}
+		{ m_entities.push_back(entity); }
 
 		// Clear add queue
 		m_toAdd.clear();

@@ -14,7 +14,9 @@ class MemoryPool
 	
 	typedef std::tuple<
 		std::vector<CTransform>,
-		std::vector<CBoundingBox>
+		std::vector<CBoundingBox>,
+		std::vector<CAnimation>,
+		std::vector<CDraggable>
 	> ComponentVectorTuple;
 
 private:
@@ -29,6 +31,8 @@ private:
 		// Reserve space
 		std::get<std::vector<CTransform>>(m_pool).reserve(numEntities);
 		std::get<std::vector<CBoundingBox>>(m_pool).reserve(numEntities);
+		std::get<std::vector<CAnimation>>(m_pool).reserve(numEntities);
+		std::get<std::vector<CDraggable>>(m_pool).reserve(numEntities);
 
 		m_tags.reserve(numEntities);
 		m_active.reserve(numEntities);
@@ -36,6 +40,8 @@ private:
 		// Set size and set to default initializations
 		std::get<std::vector<CTransform>>(m_pool).resize(numEntities);
 		std::get<std::vector<CBoundingBox>>(m_pool).resize(numEntities);
+		std::get<std::vector<CAnimation>>(m_pool).resize(numEntities);
+		std::get<std::vector<CDraggable>>(m_pool).resize(numEntities);
 
 		m_tags.resize(numEntities);
 		m_active.resize(numEntities);
@@ -48,6 +54,8 @@ private:
 		// Reserve new space
 		std::get<std::vector<CTransform>>(m_pool).reserve(numEntities);
 		std::get<std::vector<CBoundingBox>>(m_pool).reserve(numEntities);
+		std::get<std::vector<CAnimation>>(m_pool).reserve(numEntities);
+		std::get<std::vector<CDraggable>>(m_pool).reserve(numEntities);
 
 		m_tags.reserve(numEntities);
 		m_active.reserve(numEntities);
@@ -55,6 +63,8 @@ private:
 		// Resize
 		std::get<std::vector<CTransform>>(m_pool).resize(numEntities);
 		std::get<std::vector<CBoundingBox>>(m_pool).resize(numEntities);
+		std::get<std::vector<CAnimation>>(m_pool).resize(numEntities);
+		std::get<std::vector<CDraggable>>(m_pool).resize(numEntities);
 
 		m_tags.resize(numEntities);
 		m_active.resize(numEntities);
