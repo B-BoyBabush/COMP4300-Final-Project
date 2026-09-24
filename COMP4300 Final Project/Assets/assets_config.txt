@@ -1,3 +1,4 @@
+Font Evermore Assets/font.ttf
 Texture TexFern1 Assets/fern_1.png
 Texture TexFern2 Assets/fern_2.png
 Texture TexFern3 Assets/fern_3.png

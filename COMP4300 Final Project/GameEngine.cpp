@@ -40,6 +40,16 @@ void GameEngine::loadAssets(const std::string& filepath)
 			m_assets.addAnimation(name, anim);
 		}
 
+		if (type == "Font")
+		{
+			std::string name{};
+			std::string filepath{};
+
+			fileInput >> name >> filepath;
+
+			m_assets.addFont(name, filepath);
+		}
+
 		if (fileInput.eof())
 			fileInput.close();
 	}
